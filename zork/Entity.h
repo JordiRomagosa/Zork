@@ -9,7 +9,8 @@ using namespace std;
 
 enum EntityType
 {
-	ENTITY
+	ENTITY,
+	ROOM
 };
 
 class Entity

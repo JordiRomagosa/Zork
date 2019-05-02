@@ -15,8 +15,7 @@ Entity::~Entity()
 
 void Entity::Describe()
 {
-	cout << name << endl;
-	cout << description << endl;
+	cout << name << ": " << description << endl;
 }
 
 void Entity::Update()
