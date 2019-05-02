@@ -1,6 +1,8 @@
+#include <conio.h>
 #include <iostream>
 #include <string>
-#include <conio.h>
+#include <vector>
+#include "globals.h"
 
 using namespace std;
 
@@ -8,6 +10,9 @@ int main()
 {
 	char key;
 	string player_input = "";
+	vector<string> args;
+
+	cout << "Welcome to my Zork!" << endl;
 
 	while (1)
 	{
@@ -24,9 +29,8 @@ int main()
 			
 			else if (key == '\r') // return
 			{
-				player_input += "\n";
-				cout << "\n" + player_input;
-				player_input = "";
+				Tokenize(player_input, args);
+				cout << endl;
 			}
 			else
 			{
@@ -34,7 +38,19 @@ int main()
 				cout << key;
 			}
 		}
+
+		if (args.size() > 0)
+			if (Same(args[0], "quit"))
+				break;
+
+			else
+			{
+				args.clear();
+				player_input = "";
+				cout << "Action not implemented" << endl;
+			}
 	}
 
+	cout << "Thanks for playing!";
 	return 0;
 }
