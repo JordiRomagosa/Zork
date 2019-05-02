@@ -1,8 +1,9 @@
 #ifndef __Entity__
 #define __Entity__
 
-#include <string>
+#include <iostream>
 #include <list>
+#include <string>
 
 using namespace std;
 
@@ -16,6 +17,9 @@ class Entity
 public:
 	Entity(const char* name, const char* description, Entity* parent);
 	virtual ~Entity();
+
+	virtual void Describe();
+	virtual void Update();
 
 	void ChangeParentTo(Entity* new_parent);
 

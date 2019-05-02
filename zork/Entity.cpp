@@ -13,6 +13,16 @@ Entity::~Entity()
 {
 }
 
+void Entity::Describe()
+{
+	cout << name << endl;
+	cout << description << endl;
+}
+
+void Entity::Update()
+{
+}
+
 void Entity::ChangeParentTo(Entity * new_parent)
 {
 	if (parent != NULL)
