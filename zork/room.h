@@ -2,6 +2,7 @@
 #define __Room__
 
 #include "entity.h"
+#include "exit.h"
 
 class Room : public Entity
 {
@@ -14,4 +15,4 @@ public:
 public:
 };
 
-#endif __Room__
+#endif //__Room__

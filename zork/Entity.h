@@ -4,13 +4,15 @@
 #include <iostream>
 #include <list>
 #include <string>
+#include "globals.h"
 
 using namespace std;
 
 enum EntityType
 {
 	ENTITY,
-	ROOM
+	ROOM,
+	EXIT
 };
 
 class Entity
@@ -33,4 +35,4 @@ public:
 	list<Entity*> contains;
 };
 
-#endif __Entity__
+#endif //__Entity__
