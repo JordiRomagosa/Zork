@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "globals.h"
+#include "world.h"
 
 using namespace std;
 
@@ -11,6 +12,8 @@ int main()
 	char key;
 	string player_input = "";
 	vector<string> args;
+
+	World world;
 
 	cout << "Welcome to my Zork!" << endl;
 
@@ -45,9 +48,10 @@ int main()
 
 			else
 			{
-				args.clear();
 				player_input = "";
-				cout << "Action not implemented" << endl;
+				if (!world.Command(args))
+					cout << "Action not implemented" << endl;
+				args.clear();
 			}
 	}
 

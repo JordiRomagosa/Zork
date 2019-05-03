@@ -20,7 +20,8 @@ World::World()
 	entities.push_back(new Exit("animal path", "passage wide enough to pass through the forest", NORTH, clearing, forest));
 
 	//Creatures
-	entities.push_back(new Player("Player", "A legendary hero", village));
+	player = new Player("Player", "A legendary hero", village);
+	entities.push_back(player);
 }
 
 
@@ -30,4 +31,19 @@ World::~World()
 		delete *it;
 
 	entities.clear();
+}
+
+bool World::Command(vector<string>& args)
+{
+	bool success = true;
+
+	if (Same(args[0], "look"))
+	{
+		player->Look();
+	}
+	else
+		success = false;
+
+
+	return success;
 }
