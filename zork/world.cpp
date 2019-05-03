@@ -19,6 +19,8 @@ World::World()
 	entities.push_back(new Exit("animal path", "passage wide enough to pass through the forest", SOUTH, forest, clearing));
 	entities.push_back(new Exit("animal path", "passage wide enough to pass through the forest", NORTH, clearing, forest));
 
+	//Creatures
+	entities.push_back(new Player("Player", "A legendary hero", village));
 }
 
 

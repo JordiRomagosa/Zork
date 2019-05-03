@@ -4,6 +4,7 @@
 #include <list>
 #include "entity.h"
 #include "exit.h"
+#include "player.h"
 #include "room.h"
 
 class Entity;
