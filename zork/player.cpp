@@ -17,3 +17,16 @@ void Player::Look()
 {
 	GetRoom()->Describe();
 }
+
+bool Player::MoveDirection(ExitDirection direction)
+{
+	Exit* exit = GetRoom()->GetExit(direction);
+
+	if (exit == NULL)
+		return false;
+
+	ChangeParentTo(exit->destination);
+	Look();
+
+	return true;
+}

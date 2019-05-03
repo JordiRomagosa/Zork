@@ -4,6 +4,9 @@
 #include "entity.h"
 #include "exit.h"
 
+class Exit;
+enum ExitDirection;
+
 class Room : public Entity
 {
 public:
@@ -11,6 +14,7 @@ public:
 	~Room();
 
 	void Describe() const;
+	Exit* GetExit(ExitDirection direction);
 
 public:
 };

@@ -38,9 +38,16 @@ bool World::Command(vector<string>& args)
 	bool success = true;
 
 	if (Same(args[0], "look"))
-	{
 		player->Look();
-	}
+	else if (Same(args[0], "north"))
+		player->MoveDirection(NORTH);
+	else if (Same(args[0], "south"))
+		player->MoveDirection(SOUTH);
+	else if (Same(args[0], "east"))
+		player->MoveDirection(EAST);
+	else if (Same(args[0], "west"))
+		player->MoveDirection(WEST);
+
 	else
 		success = false;
 

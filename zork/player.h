@@ -10,6 +10,7 @@ public:
 	~Player();
 
 	void Look();
+	bool MoveDirection(ExitDirection direction);
 
 public:
 };

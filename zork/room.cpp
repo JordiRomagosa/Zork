@@ -28,8 +28,24 @@ void Room::Describe() const
 				case WEST: cout << "west "; break;
 			}
 			exit->Describe();
+			cout << endl;
 		}
 	}
+}
+
+Exit * Room::GetExit(ExitDirection direction)
+{
+	for (list<Entity*>::const_iterator it = contains.begin(); it != contains.cend(); ++it)
+	{
+		if ((*it)->type == EXIT)
+		{
+			Exit* exit = (Exit*)*it;
+			if (exit->direction == direction)
+				return exit;
+		}
+	}
+
+	return NULL;
 }
 
 
