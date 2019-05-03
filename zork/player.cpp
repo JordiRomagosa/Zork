@@ -15,5 +15,5 @@ Player::~Player()
 
 void Player::Look()
 {
-	parent->Describe();
+	GetRoom()->Describe();
 }
