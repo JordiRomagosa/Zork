@@ -3,9 +3,11 @@
 
 #include "entity.h"
 #include "exit.h"
+#include "item.h"
 
-class Exit;
 enum ExitDirection;
+class Exit;
+class Item;
 
 class Room : public Entity
 {

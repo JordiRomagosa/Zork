@@ -30,6 +30,14 @@ void Room::Describe() const
 			exit->Describe();
 			cout << endl;
 		}
+
+		else if ((*it)->type == ITEM)
+		{
+			Item* item = (Item*)*it;
+			cout << "You can see a ";
+			item->Describe();
+			cout << " on the floor." << endl;
+		}
 	}
 }
 

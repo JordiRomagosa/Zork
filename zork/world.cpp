@@ -22,6 +22,9 @@ World::World()
 	//Creatures
 	player = new Player("Player", "A legendary hero", village);
 	entities.push_back(player);
+
+	//Items
+	entities.push_back(new Item("sword", "a rusty but sturdy sword", clearing));
 }
 
 
