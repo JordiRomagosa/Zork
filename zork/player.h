@@ -2,6 +2,7 @@
 #define __Player__
 
 #include "creature.h"
+#include "item.h"
 
 class Player : public Creature
 {
@@ -15,6 +16,8 @@ public:
 
 	void Look();
 	bool MoveDirection(ExitDirection direction);
+
+	Item* GetBag() const;
 
 public:
 };

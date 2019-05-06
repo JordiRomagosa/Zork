@@ -40,18 +40,30 @@ bool Player::Drop(const vector<string>& args)
 
 	Item* item = (Item*)Find(args[1], ITEM);
 
-	if (item == NULL)
+	if (item != NULL)
 	{
-		cout << "You don't have an item with that name";
-		return false;
+		cout << "You drop ";
+		item->Describe();
+		cout << "." << endl;
+		item->ChangeParentTo(parent);
+
+		return true;
 	}
+	
+	Item* bag = GetBag();
+	item = (Item*)bag->Find(args[1], ITEM);
+	if (item != NULL)
+	{
+		cout << "You drop ";
+		item->Describe();
+		cout << "." << endl;
+		item->ChangeParentTo(parent);
 
-	cout << "You drop ";
-	item->Describe();
-	cout << "." << endl;
-	item->ChangeParentTo(parent);
-
-	return true;
+		return true;
+	}
+	
+	cout << "You don't have an item with that name." << endl;
+	return false;
 }
 
 bool Player::Put(const vector<string>& args)
@@ -62,9 +74,9 @@ bool Player::Put(const vector<string>& args)
 	Item* bag = (Item*)Find(args[3], ITEM);
 	Item* item = (Item*)parent->Find(args[1], ITEM);
 
-	if (item == NULL || bag == NULL)
+	if (item == NULL || bag == NULL || bag->itemType != BAG)
 	{
-		cout << "It is not possible to put the" << args[1] << " inside " << args[3] << "." << endl;
+		cout << "It is not possible to put the " << args[1] << " inside " << args[3] << "." << endl;
 		return false;
 	}
 
@@ -96,4 +108,19 @@ bool Player::MoveDirection(ExitDirection direction)
 	Look();
 
 	return true;
+}
+
+Item* Player::GetBag() const
+{
+	for (list<Entity*>::const_iterator it = contains.begin(); it != contains.cend(); ++it)
+	{
+		if ((*it)->type == ITEM)
+		{
+			Item* item = (Item*)*it;
+			if (item->itemType == BAG)
+				return item;
+		}
+	}
+
+	return NULL;
 }

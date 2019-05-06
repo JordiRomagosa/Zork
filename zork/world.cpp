@@ -24,8 +24,9 @@ World::World()
 	entities.push_back(player);
 
 	//Items
-	entities.push_back(new Item("sword", "a rusty but sturdy sword", clearing));
-	entities.push_back(new Item("bag", "you can put things inside", player));
+	entities.push_back(new Item("sword", "a rusty but sturdy sword", GENERAL, clearing));
+	entities.push_back(new Item("branch", "simple branch", GENERAL, clearing));
+	entities.push_back(new Item("bag", "you can put things inside", BAG, player));
 }
 
 
