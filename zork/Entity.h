@@ -29,6 +29,7 @@ public:
 
 	void ChangeParentTo(Entity* new_parent);
 	Entity* Find(const string& name, EntityType type) const;
+	void FindAll(EntityType type, list<Entity*>& list_to_fill) const;
 
 public:
 	EntityType type;
