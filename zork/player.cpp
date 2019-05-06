@@ -87,6 +87,22 @@ void Player::Look()
 	GetRoom()->Describe();
 }
 
+void Player::Inventory() const
+{
+	for (list<Entity*>::const_iterator it = contains.begin(); it != contains.cend(); ++it)
+	{
+		cout << "You are carrying:";
+		if ((*it)->type == ITEM)
+		{
+			Item* item = (Item*)*it;
+			
+			cout << endl;
+			item->Describe();
+		}
+		cout << endl;
+	}
+}
+
 bool Player::MoveDirection(ExitDirection direction)
 {
 	Exit* exit = GetRoom()->GetExit(direction);

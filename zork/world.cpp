@@ -60,6 +60,8 @@ bool World::Command(vector<string>& args)
 		player->Drop(args);
 	else if (Same(args[0], "put") && (Same(args[2], "into") || (Same(args[2], "in"))))
 		player->Put(args);
+	else if (Same(args[0], "inventory"))
+		player->Inventory();
 
 	else
 		success = false;

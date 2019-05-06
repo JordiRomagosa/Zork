@@ -15,6 +15,7 @@ public:
 	bool Put(const vector<string>& args);
 
 	void Look();
+	void Inventory() const;
 	bool MoveDirection(ExitDirection direction);
 
 	Item* GetBag() const;

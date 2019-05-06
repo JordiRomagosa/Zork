@@ -21,7 +21,7 @@ void Item::Describe() const
 
 		if (items.size() > 0)
 		{
-			cout << " that contains(";
+			cout << " that contains (";
 			for (list<Entity*>::const_iterator it = items.begin(); it != items.cend(); ++it)
 			{
 				Item* item = (Item*)(*it);
