@@ -2,7 +2,6 @@
 #define __Exit__
 
 #include "entity.h"
-#include "room.h"
 
 class Room;
 

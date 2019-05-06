@@ -2,12 +2,11 @@
 #define __Room__
 
 #include "entity.h"
-#include "exit.h"
-#include "item.h"
 
 enum ExitDirection : int;
 class Exit;
 class Item;
+class Npc;
 
 class Room : public Entity
 {

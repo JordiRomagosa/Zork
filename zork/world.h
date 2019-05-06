@@ -3,10 +3,12 @@
 
 #include <list>
 #include "entity.h"
+#include "room.h"
 #include "exit.h"
 #include "item.h"
+#include "creature.h"
+#include "npc.h"
 #include "player.h"
-#include "room.h"
 
 class Entity;
 class Player;

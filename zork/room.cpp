@@ -1,4 +1,7 @@
 #include "room.h"
+#include "exit.h"
+#include "npc.h"
+#include "item.h"
 
 Room::Room(const char * name, const char * description) :
 	Entity(name, description, NULL)
