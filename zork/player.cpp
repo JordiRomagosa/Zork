@@ -1,9 +1,10 @@
 #include "player.h"
-
+#include "room.h"
+#include "exit.h"
 
 
 Player::Player(const char* name, const char* description, Room* room) :
-	Creature(name, description, 10, 1, 0, room)
+	Creature(name, description, room)
 {
 	type = PLAYER;
 }
@@ -105,15 +106,7 @@ void Player::Inventory() const
 
 bool Player::MoveDirection(ExitDirection direction)
 {
-	Exit* exit = GetRoom()->GetExit(direction);
-
-	if (exit == NULL)
-		return false;
-
-	ChangeParentTo(exit->destination);
-	Look();
-
-	return true;
+	return Creature::MoveDirection(direction);
 }
 
 Item* Player::GetBag() const

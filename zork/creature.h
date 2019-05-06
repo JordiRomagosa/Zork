@@ -2,23 +2,23 @@
 #define __Creature__
 
 #include "entity.h"
-#include "room.h"
 
+enum ExitDirection : int;
 class Room;
+class Exit;
 
 class Creature : public Entity
 {
 public:
-	Creature(const char* name, const char* description, int endurance, int damage, int protection, Room* room);
-	~Creature();
+	Creature(const char* name, const char* description, Room* room);
+	virtual ~Creature();
+
+	virtual bool MoveDirection(ExitDirection direction);
 
 	Room* GetRoom() const;
 	bool IsAlive() const;
 
 public:
-	int endurance;
-	int damage;
-	int protection;
 };
 
 #endif //__Creature__
