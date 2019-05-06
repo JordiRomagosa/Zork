@@ -25,6 +25,7 @@ World::World()
 
 	//Items
 	entities.push_back(new Item("sword", "a rusty but sturdy sword", clearing));
+	entities.push_back(new Item("bag", "you can put things inside", player));
 }
 
 
@@ -56,6 +57,8 @@ bool World::Command(vector<string>& args)
 		player->Take(args);
 	else if (Same(args[0], "drop"))
 		player->Drop(args);
+	else if (Same(args[0], "put") && (Same(args[2], "into") || (Same(args[2], "in"))))
+		player->Put(args);
 
 	else
 		success = false;

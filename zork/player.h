@@ -11,6 +11,7 @@ public:
 
 	bool Take(const vector<string>& args);
 	bool Drop(const vector<string>& args);
+	bool Put(const vector<string>& args);
 
 	void Look();
 	bool MoveDirection(ExitDirection direction);
