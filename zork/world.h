@@ -20,6 +20,7 @@ public:
 	~World();
 
 	bool Command(vector<string>& args);
+	void MovePlayer(ExitDirection direction);
 	void Help();
 
 public:

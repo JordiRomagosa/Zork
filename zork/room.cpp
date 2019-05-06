@@ -42,6 +42,14 @@ void Room::Describe() const
 			item->Describe();
 			cout << " on the floor." << endl;
 		}
+
+		else if ((*it)->type == NPC)
+		{
+			Npc* npc = (Npc*)*it;
+			cout << "You can see a ";
+			npc->Describe();
+			cout << endl;
+		}
 	}
 }
 

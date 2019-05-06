@@ -1,7 +1,6 @@
 #include "world.h"
 
 
-
 World::World()
 {
 	//Rooms
@@ -44,9 +43,13 @@ World::World()
 	entities.push_back(new Exit("steep slope", "the side of a mountain, with a steep slope, that leads to a cave", EAST, forest5, cave));
 	entities.push_back(new Exit("steep slope", "the side of a mountain, with a steep slope, that leads to the forest", WEST, cave, forest5));
 
-
-
 	//Creatures
+	entities.push_back(new Npc("rabit", "eating grass calmly", clearing));
+	entities.push_back(new Npc("rabit", "eating grass calmly", forest3));
+	entities.push_back(new Npc("deer", "looks at you and keeps the distance", forest2));
+	entities.push_back(new Npc("wolf", "searching for pray to hunt. Better stay away", cave));
+
+	//Player
 	player = new Player("Player", "A legendary hero", village);
 	entities.push_back(player);
 
@@ -75,13 +78,13 @@ bool World::Command(vector<string>& args)
 		player->Look();
 
 	else if (Same(args[0], "north"))
-		return player->MoveDirection(NORTH);
+		MovePlayer(NORTH);
 	else if (Same(args[0], "south"))
-		return player->MoveDirection(SOUTH);
+		MovePlayer(SOUTH);
 	else if (Same(args[0], "east"))
-		return player->MoveDirection(EAST);
+		MovePlayer(EAST);
 	else if (Same(args[0], "west"))
-		return player->MoveDirection(WEST);
+		MovePlayer(WEST);
 
 	else if (Same(args[0], "pick") || Same(args[0], "take"))
 		player->Take(args);
@@ -100,6 +103,25 @@ bool World::Command(vector<string>& args)
 
 
 	return success;
+}
+
+void World::MovePlayer(ExitDirection direction)
+{
+	if (player->MoveDirection(direction))
+	{
+		//move creatures
+		for (list<Entity*>::const_iterator it = entities.begin(); it != entities.cend(); ++it)
+		{
+			if ((*it)->type == NPC)
+			{
+				Npc* npc = (Npc*)(*it);
+				npc->Update();
+			}
+		}
+		player->Look();
+	}
+	else
+		cout << "You can't move in this direction." << endl;
 }
 
 void World::Help()
