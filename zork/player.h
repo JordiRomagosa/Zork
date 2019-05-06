@@ -9,6 +9,8 @@ public:
 	Player(const char* name, const char* description, Room* room);
 	~Player();
 
+	bool Take(const vector<string>& args);
+
 	void Look();
 	bool MoveDirection(ExitDirection direction);
 

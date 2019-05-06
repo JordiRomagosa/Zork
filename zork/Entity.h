@@ -28,6 +28,7 @@ public:
 	virtual void Update();
 
 	void ChangeParentTo(Entity* new_parent);
+	Entity* Find(const string& name, EntityType type) const;
 
 public:
 	EntityType type;

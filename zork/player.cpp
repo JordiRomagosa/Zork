@@ -13,6 +13,27 @@ Player::~Player()
 {
 }
 
+bool Player::Take(const vector<string>& args)
+{
+	if(!IsAlive())
+		return false;
+
+	Item* item = (Item*)parent->Find(args[1], ITEM);
+	if (item == NULL)
+	{
+		cout << "There is no item with that name in this room." << endl;
+		return false;
+	}
+
+	cout << "You take ";
+	item->Describe();
+	cout << "." << endl;
+
+	item->ChangeParentTo(this);
+
+	return true;
+}
+
 void Player::Look()
 {
 	GetRoom()->Describe();

@@ -33,4 +33,16 @@ void Entity::ChangeParentTo(Entity * new_parent)
 	parent = new_parent;
 }
 
+Entity * Entity::Find(const string & name, EntityType type) const
+{
+	for (list<Entity*>::const_iterator it = contains.begin(); it != contains.cend(); ++it)
+	{
+		if ((*it)->type == type)
+		{
+			if (Same((*it)->name, name))
+				return *it;
+		}
+	}
 
+	return NULL;
+}
