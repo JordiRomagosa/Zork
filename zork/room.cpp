@@ -27,6 +27,7 @@ void Room::Describe() const
 				case EAST: cout << "east "; break;
 				case WEST: cout << "west "; break;
 			}
+			cout << "you can see ";
 			exit->Describe();
 			cout << endl;
 		}

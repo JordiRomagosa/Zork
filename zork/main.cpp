@@ -23,12 +23,14 @@ int main()
 		if (_kbhit() != 0)
 		{
 			key = _getch();
-			if (key == '\b' && player_input.length() > 0) //back
+			if (key == '\b') //back
 			{
-				player_input.pop_back();
-				cout << '\b';
-				cout << " ";
-				cout << '\b';
+				if (player_input.length() > 0) {
+					player_input.pop_back();
+					cout << '\b';
+					cout << " ";
+					cout << '\b';
+				}
 			}
 			
 			else if (key == '\r') // return

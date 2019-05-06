@@ -5,7 +5,7 @@
 #include "exit.h"
 #include "item.h"
 
-enum ExitDirection;
+enum ExitDirection : int;
 class Exit;
 class Item;
 
