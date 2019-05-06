@@ -18,6 +18,7 @@ public:
 	~World();
 
 	bool Command(vector<string>& args);
+	void Help();
 
 public:
 	list<Entity*> entities;

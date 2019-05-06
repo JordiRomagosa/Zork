@@ -13,6 +13,5 @@ Exit::~Exit()
 
 void Exit::Describe() const
 {
-	cout << "there's a " << name << " that connects ";
-	cout << parent->name << " with " << destination->name;
+	cout << description << ".";
 }

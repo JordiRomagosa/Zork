@@ -56,7 +56,7 @@ bool Player::Drop(const vector<string>& args)
 		return true;
 	}
 	
-	cout << "You don't have an item with that name." << endl;
+	cout << "You don't have any " << args[1] << "." << endl;
 	return false;
 }
 
@@ -89,9 +89,9 @@ void Player::Look()
 
 void Player::Inventory() const
 {
+	cout << "You are carrying:";
 	for (list<Entity*>::const_iterator it = contains.begin(); it != contains.cend(); ++it)
 	{
-		cout << "You are carrying:";
 		if ((*it)->type == ITEM)
 		{
 			Item* item = (Item*)*it;
@@ -99,8 +99,8 @@ void Player::Inventory() const
 			cout << endl;
 			item->Describe();
 		}
-		cout << endl;
 	}
+	cout << endl;
 }
 
 bool Player::MoveDirection(ExitDirection direction)

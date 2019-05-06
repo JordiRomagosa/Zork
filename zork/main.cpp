@@ -12,10 +12,11 @@ int main()
 	char key;
 	string player_input = "";
 	vector<string> args;
+	args.push_back("look");
 
 	World world;
 
-	cout << "Welcome to my Zork!" << endl;
+	cout << "Welcome to my Zork!" << endl << endl;
 
 	while (1)
 	{
@@ -33,7 +34,7 @@ int main()
 			else if (key == '\r') // return
 			{
 				Tokenize(player_input, args);
-				cout << endl;
+				cout << endl << endl;
 			}
 			else
 			{
@@ -50,8 +51,9 @@ int main()
 			{
 				player_input = "";
 				if (!world.Command(args))
-					cout << "Action not implemented" << endl;
+					cout << "Impossible or incorrect action. Write \"help\" for a list of commands." << endl;
 				args.clear();
+				cout << endl << "->";
 			}
 	}
 
