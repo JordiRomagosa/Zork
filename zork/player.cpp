@@ -21,13 +21,11 @@ bool Player::Take(const vector<string>& args)
 	Item* item = (Item*)parent->Find(args[1], ITEM);
 	if (item == NULL)
 	{
-		cout << "There is no item with that name in this room." << endl;
+		cout << "There is no " << args[1] << " in this room." << endl;
 		return false;
 	}
 
-	cout << "You take ";
-	item->Describe();
-	cout << "." << endl;
+	cout << "You take " << args[1] << "." << endl;
 	item->ChangeParentTo(this);
 
 	return true;
@@ -42,9 +40,7 @@ bool Player::Drop(const vector<string>& args)
 
 	if (item != NULL)
 	{
-		cout << "You drop ";
-		item->Describe();
-		cout << "." << endl;
+		cout << "You drop " << args[1] << "." << endl;
 		item->ChangeParentTo(parent);
 
 		return true;
@@ -54,9 +50,7 @@ bool Player::Drop(const vector<string>& args)
 	item = (Item*)bag->Find(args[1], ITEM);
 	if (item != NULL)
 	{
-		cout << "You drop ";
-		item->Describe();
-		cout << "." << endl;
+		cout << "You drop " << args[1] << "." << endl;
 		item->ChangeParentTo(parent);
 
 		return true;
@@ -80,11 +74,7 @@ bool Player::Put(const vector<string>& args)
 		return false;
 	}
 
-	cout << "You take ";
-	item->Describe();
-	cout << " and put it inside ";
-	bag->Describe();
-	cout << "." << endl;
+	cout << "You take " << args[1] << " and put it inside " << args[3] << "." << endl;
 	item->ChangeParentTo(bag);
 
 	return true;
