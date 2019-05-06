@@ -28,8 +28,28 @@ bool Player::Take(const vector<string>& args)
 	cout << "You take ";
 	item->Describe();
 	cout << "." << endl;
-
 	item->ChangeParentTo(this);
+
+	return true;
+}
+
+bool Player::Drop(const vector<string>& args)
+{
+	if (!IsAlive())
+		return false;
+
+	Item* item = (Item*)Find(args[1], ITEM);
+
+	if (item == NULL)
+	{
+		cout << "You don't have an item with that name";
+		return false;
+	}
+
+	cout << "You drop ";
+	item->Describe();
+	cout << "." << endl;
+	item->ChangeParentTo(parent);
 
 	return true;
 }

@@ -54,6 +54,8 @@ bool World::Command(vector<string>& args)
 
 	else if (Same(args[0], "pick") || Same(args[0], "take"))
 		player->Take(args);
+	else if (Same(args[0], "drop"))
+		player->Drop(args);
 
 	else
 		success = false;
